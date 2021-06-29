@@ -15,7 +15,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  final splashDelay = 3;
+  final splashDelay = 5;
   Widget page = LoginScreen();
   final storage = new FlutterSecureStorage();
 
@@ -55,24 +55,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Color(0xFFF5F5F7),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ShowUpAnimation(
-              delayStart: Duration(seconds: 0),
-              animationDuration: Duration(seconds: 1),
-              curve: Curves.bounceIn,
-              direction: Direction.vertical,
-              offset: 0.5,
-              child: Center(child: Container(
-                  width: MediaQuery.of(context).size.width*0.35,
-                  child: Image.asset('images/buystuff.png',)
-              ))
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Image.asset("images/splash-background.png",
+                fit: BoxFit.fitHeight,
+                height: MediaQuery.of(context).size.height*1,
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height*0.35,
+                left: MediaQuery.of(context).size.width*0.35,
+                child:Center(child: Container(
+                    child: Image.asset('images/buystuff.png',)
+                )),
+              )
+            ],
           ),
-
-        ],
-      ),
+        ),
     );
   }
 }

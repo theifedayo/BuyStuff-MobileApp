@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:buystuff/components/stateless_button.dart';
+import 'package:page_transition/page_transition.dart';
+import 'login_screen.dart';
 import 'package:buystuff/components/stateful_button.dart';
 
 
@@ -26,11 +28,13 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
           children: [
             Header(),
-            SignupForm()
+            SignupForm(),
+            Footer()
           ],
         ),
       ),
@@ -233,9 +237,35 @@ class _SignupScreenState extends State<SignupScreen> {
 
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height*0.06,),
+        SizedBox(height: MediaQuery.of(context).size.height*0.02,),
         StatelessButton(buttonText: 'Create an account', buttonColor: Color(0xFF001F3E),onPress: () async {}),
+        SizedBox(height: MediaQuery.of(context).size.height*0.06,),
       ],
+    );
+  }
+
+  Widget Footer(){
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Already have an account? ", style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: MediaQuery.of(context).size.height*0.018,
+              fontWeight: FontWeight.bold,
+              color: Colors.grey[600]
+          ),),
+          GestureDetector(
+            child: Text(" Sign in", style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: MediaQuery.of(context).size.height*0.018,
+                fontWeight: FontWeight.bold
+            ),),
+            onTap: (){
+              Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: LoginScreen()));
+            },
+          ),
+        ]
+
     );
   }
 }

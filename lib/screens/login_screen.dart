@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:buystuff/components/stateless_button.dart';
 import 'package:page_transition/page_transition.dart';
 import 'signup_screen.dart';
+import 'main_screen.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
           children: [
@@ -145,7 +147,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                StatelessButton(buttonText: 'Login', buttonColor: Color(0xFF001F3E),onPress: () async {}),
+                StatelessButton(buttonText: 'Login', buttonColor: Color(0xFF001F3E),onPress: () async {
+                  Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: Main()));
+                }),
                 SizedBox(height: MediaQuery.of(context).size.height*0.1,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of acanode.
+  // This widget is the root of buystuff.
   @override
   Widget build(BuildContext context) {
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
 
         primaryColor: Color(0XFF0A0E21),
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Color(0xFFF2F2F2),
         accentColor: Color(0xFF001F3E),
         textTheme: TextTheme(body1: TextStyle(color: Colors.black),),
 
