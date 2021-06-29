@@ -27,7 +27,7 @@ class StatelessButton extends StatelessWidget {
                     Text(buttonText,
                       style: TextStyle(
                           fontFamily: 'Montserrat',
-                          fontSize: MediaQuery.of(context).size.height*0.018,
+                          fontSize: MediaQuery.of(context).size.height*0.020,
                           fontWeight: FontWeight.bold
                       ),
                     ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:buystuff/components/stateless_button.dart';
+import 'package:page_transition/page_transition.dart';
+import 'signup_screen.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -8,6 +11,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool circular = false;
+  final storage = new FlutterSecureStorage();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String emailerrorText;
+  String passworderrorText;
+  bool validate = false;
+  bool vis = true;
+  final globalKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,15 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-                      child: Icon(Icons.chevron_left, color: Colors.black, size: 35,),
-                    )
-                  ],
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.2,),
                 Padding(
                   padding: const EdgeInsets.only(left: 25.0),
                   child: Text("Login", style: TextStyle(
@@ -84,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 25.0),
                   child: TextFormField(
-                    //controller: passwordController,
+                    controller: passwordController,
                     validator: (value){
                       if(value.isEmpty){
                         return "password cannot be empty";
@@ -99,11 +104,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                         //errorText: validate ? passworderrorText: null,
                         prefixIcon: Icon(Icons.lock_open, color: Colors.grey,),
-                        // suffixIcon: IconButton(icon: Icon(vis?Icons.visibility_off: Icons.visibility), onPressed: (){
-                        //   setState(() {
-                        //     //vis = !vis;
-                        //   });
-                        // },),
+                        suffixIcon: IconButton(icon: Icon(vis?Icons.visibility_off: Icons.visibility), onPressed: (){
+                          setState(() {
+                            //vis = !vis;
+                          });
+                        },),
                         filled: true,
                         fillColor: Color(0xFFEFF0F6),
                         hintText: 'Password',
@@ -140,6 +145,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
+                StatelessButton(buttonText: 'Login', buttonColor: Color(0xFF001F3E),onPress: () async {}),
+                SizedBox(height: MediaQuery.of(context).size.height*0.1,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Don't have an account? ", style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: MediaQuery.of(context).size.height*0.018,
+                        fontWeight: FontWeight.bold,
+                      color: Colors.grey[600]
+                    ),),
+                    GestureDetector(
+                      child: Text(" Create one", style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: MediaQuery.of(context).size.height*0.018,
+                          fontWeight: FontWeight.bold
+                      ),),
+                      onTap: (){
+                        Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: SignupScreen()));
+                      },
+                    ),
+                    ]
+
+                )
               ],
             )
           ],

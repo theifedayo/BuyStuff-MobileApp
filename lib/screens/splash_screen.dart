@@ -66,13 +66,8 @@ class _SplashScreenState extends State<SplashScreen> {
               direction: Direction.vertical,
               offset: 0.5,
               child: Center(child: Container(
-                  child: Column(
-                    children: [
-                      Text("🛍️", style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height*0.1
-                      ),),
-                    ],
-                  )
+                  width: MediaQuery.of(context).size.width*0.35,
+                  child: Image.asset('images/buystuff.png',)
               ))
           ),
 

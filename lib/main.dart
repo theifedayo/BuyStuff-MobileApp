@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 
         primaryColor: Color(0XFF0A0E21),
         scaffoldBackgroundColor: Colors.white,
-        accentColor: Color(0xFF1CCF7F),
+        accentColor: Color(0xFF001F3E),
         textTheme: TextTheme(body1: TextStyle(color: Colors.black),),
 
       ),
