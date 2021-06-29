@@ -63,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     decoration: InputDecoration(
                         //errorText: validate ? emailerrorText: null,
+                        prefixIcon: Icon(Icons.email, color: Colors.grey,),
                         filled: true,
                         fillColor: Color(0xFFEFF0F6),
                         hintText: 'Email',
@@ -97,6 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     decoration: InputDecoration(
                         //errorText: validate ? passworderrorText: null,
+                        prefixIcon: Icon(Icons.lock_open, color: Colors.grey,),
                         // suffixIcon: IconButton(icon: Icon(vis?Icons.visibility_off: Icons.visibility), onPressed: (){
                         //   setState(() {
                         //     //vis = !vis;
@@ -118,6 +120,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
 
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
+                      child: InkWell(
+                        child: Text("Forgot password?", style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height*0.016,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Montserrat',
+                        ),),
+                        onTap: (){
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPasswordScreen()));
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             )
