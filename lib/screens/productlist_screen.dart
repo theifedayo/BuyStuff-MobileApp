@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:swipe_cards/swipe_cards.dart';
-import 'package:buystuff/components/content.dart';
+import 'package:buystuff/components/product_card.dart';
 import 'package:buystuff/components/header.dart';
 
 
@@ -14,7 +14,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   List<SwipeItem> _swipeItems = <SwipeItem>[];
   MatchEngine _matchEngine;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  List<String> _names = ["Red", "Blue", "Green", "Yellow", "Orange"];
+  List<String> _names = ["images/cake1.jpeg", "images/clothing1.jpeg", "images/sneakers2.jpeg", "images/clothing2.jpeg", "images/watch1.jpeg"];
   List<Color> _colors = [
     Colors.red,
     Colors.blue,
@@ -27,16 +27,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
   void initState() {
     for (int i = 0; i < _names.length; i++) {
       _swipeItems.add(SwipeItem(
-          content: Content(text: _names[i], color: _colors[i]),
+          content: ProductCard(imageLocation: _names[i],),//color: _colors[i]),
           likeAction: () {
             _scaffoldKey.currentState.showSnackBar(SnackBar(
-              backgroundColor: Colors.green,
+              backgroundColor: Color(0xFFF0FFF0),
               content: Text("Added ${_names[i]} to cart", style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Montserrat',
               ),),
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 1000),
             ));
           },
           superlikeAction: () {
@@ -93,13 +93,23 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     return Container(
                       alignment: Alignment.center,
                       //color: _swipeItems[index].content.color,
-                      child: Text(
-                        _swipeItems[index].content.text,
-                        style: TextStyle(fontSize: 50),
+                      child: Column(
+                        children: [
+                          // Text(
+                          //   _swipeItems[index].content.text,
+                          //   style: TextStyle(fontSize: 50),
+                          // ),
+                          Image.asset(
+                            _swipeItems[index].content.imageLocation,
+                            width: MediaQuery.of(context).size.width*0.7,
+                            height: MediaQuery.of(context).size.height*0.7,
+                          )
+
+                        ],
                       ),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20.0),
-                            color: _swipeItems[index].content.color,
+                            //color: _swipeItems[index].content.color,
                         )
                     );
                   },

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:buystuff/components/header.dart';
-import 'package:buystuff/components/stateless_button.dart';
+import 'package:page_transition/page_transition.dart';
+import 'account_settings/account_settings_screen.dart';
+import 'login_screen.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -12,7 +14,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[50],
+      backgroundColor: Colors.yellow[100],
       appBar: AppBar(
         leadingWidth: 0,
         title: Header(screenName: "My Profile", rightWidget: Text("")),
@@ -23,34 +25,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: ListView(
         children: [
           MainProfile(),
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
-            child: Container(
-                height: MediaQuery.of(context).size.height*0.4,
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(22.0),
-                  color: Colors.white,
-                    boxShadow: [
-                      new BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 20.0,
-                      ),
-                    ]
-                ),
-            ),
-          ),
-
+          SettingsCard(),
         ],
       ),
     );
   }
+
+
+
 
   Widget MainProfile(){
     return Column(
@@ -125,6 +107,115 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         )
       ],
+    );
+  }
+
+  Widget SettingsCard(){
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height*0.28,
+            width: MediaQuery.of(context).size.width*0.9,
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  child: ProfileCard(cardText: "Account Settings", textColor: Colors.black, tap: (){
+                    Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: AccountSettingsScreen()));
+                  },),
+                ),
+                Divider(
+                  thickness: 0.2,
+                  color: Colors.black54,
+                ),
+                ProfileCard(cardText: "Store Settings", textColor: Colors.black,),
+                Divider(
+                  thickness: 0.2,
+                  color: Colors.black54,
+                ),
+                ProfileCard(cardText: "Payment Settings", textColor: Colors.black,),
+                Divider(
+                  thickness: 0.2,
+                  color: Colors.black54,
+                ),
+                ProfileCard(cardText: "Share with friends", textColor: Colors.black,),
+              ],
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22.0),
+                color: Colors.white,
+                boxShadow: [
+                  new BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 20.0,
+                  ),
+                ]
+            ),
+          ),
+          SizedBox(height: 30,),
+          Container(
+            height: MediaQuery.of(context).size.height*0.08,
+            width: MediaQuery.of(context).size.width*0.9,
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ProfileCard(cardText: "Log Out", textColor: Colors.red, tap: (){
+                  Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: LoginScreen()));
+                },),
+              ],
+            ),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(22.0),
+                color: Colors.white,
+                boxShadow: [
+                  new BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 20.0,
+                  ),
+                ]
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  
+}
+
+class ProfileCard extends StatelessWidget {
+  ProfileCard({ this.cardText, this.textColor, this.cardIcon, this.tap});
+  final String cardText;
+  final Color textColor;
+  final Icon cardIcon;
+  final Function tap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("$cardText", style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.bold,
+                  color: textColor
+              )),
+            ),
+            // SizedBox(width: 200,),
+            InkWell(child: Icon(Icons.chevron_right, color: Colors.black45, size: 35,))
+          ],
+        ),
+      ),
+      onTap: tap,
     );
   }
 }
