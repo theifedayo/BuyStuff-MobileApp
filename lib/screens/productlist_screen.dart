@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:swipe_cards/swipe_cards.dart';
 import 'package:buystuff/components/content.dart';
 import 'package:buystuff/components/header.dart';
@@ -29,13 +30,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
           content: Content(text: _names[i], color: _colors[i]),
           likeAction: () {
             _scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text("Liked ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
-            ));
-          },
-          nopeAction: () {
-            _scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text("Nope ${_names[i]}"),
+              backgroundColor: Colors.green,
+              content: Text("Added ${_names[i]} to cart", style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Montserrat',
+              ),),
               duration: Duration(milliseconds: 500),
             ));
           },
@@ -86,17 +86,21 @@ class _ProductListScreenState extends State<ProductListScreen> {
         body: Container(
             child: Column(children: [
               Container(
-                height: 550,
+                height: 650,
                 child: SwipeCards(
                   matchEngine: _matchEngine,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       alignment: Alignment.center,
-                      color: _swipeItems[index].content.color,
+                      //color: _swipeItems[index].content.color,
                       child: Text(
                         _swipeItems[index].content.text,
-                        style: TextStyle(fontSize: 100),
+                        style: TextStyle(fontSize: 50),
                       ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color: _swipeItems[index].content.color,
+                        )
                     );
                   },
                   onStackFinished: () {
@@ -104,27 +108,65 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       content: Text("Stack Finished"),
                       duration: Duration(milliseconds: 500),
                     ));
+                    //Navigator.pop(context);
                   },
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        _matchEngine.currentItem?.nope();
-                      },
-                      child: Text("Nope")),
-                  ElevatedButton(
-                      onPressed: () {
-                        _matchEngine.currentItem?.superLike();
-                      },
-                      child: Text("Superlike")),
-                  ElevatedButton(
-                      onPressed: () {
-                        _matchEngine.currentItem?.like();
-                      },
-                      child: Text("Like"))
+                  GestureDetector(child: Container(
+                    width: 70,
+                    height: 70,
+                    child: Center(
+                      child: Text("❌", style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                      ),),
+                    ),
+                    decoration: new BoxDecoration(
+
+                      borderRadius: BorderRadius.circular(70.0),
+                      color: Colors.white,
+                    ),
+                  ), onTap: (){
+                    _matchEngine.currentItem?.nope();
+                  },),
+                  GestureDetector(child: Container(
+                    width: 70,
+                    height: 70,
+                    child: Center(
+                      child: Icon(FontAwesomeIcons.shareAlt, size: 30, color: Color(0xFF001F3E),),
+                    ),
+                    decoration: new BoxDecoration(
+
+                      borderRadius: BorderRadius.circular(70.0),
+                      color: Colors.white,
+                    ),
+                  ), onTap: (){
+
+                  },),
+                  GestureDetector(child: Container(
+                    width: 70,
+                    height: 70,
+                    child: Center(
+                      child: Text("💚", style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Poppins',
+                      ),),
+                    ),
+                    decoration: new BoxDecoration(
+
+                      borderRadius: BorderRadius.circular(70.0),
+                      color: Colors.white,
+                    ),
+                  ), onTap: (){
+                    _matchEngine.currentItem?.like();
+                  },),
                 ],
               )
             ])));
