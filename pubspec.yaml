@@ -32,6 +32,7 @@ dependencies:
   angles: ^1.2.1
   flutter_secure_storage: ^3.3.3
   font_awesome_flutter: ^8.4.0
+  swipe_cards:
   page_transition:
 
 dev_dependencies:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buystuff/components/header.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 
 class CartScreen extends StatefulWidget {
