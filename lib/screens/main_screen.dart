@@ -4,6 +4,7 @@ import 'home_screen.dart';
 import 'cart_screen.dart';
 import 'sell_screen.dart';
 import 'profile_screen.dart';
+import 'search_screen.dart';
 
 
 
@@ -18,8 +19,9 @@ class _MainState extends State<Main> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold, fontFamily: "Montserrat");
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    CartScreen(),
+    SearchScreen(),
     SellScreen(),
+    CartScreen(),
     ProfileScreen(),
   ];
 
@@ -40,7 +42,7 @@ class _MainState extends State<Main> {
         backgroundColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        elevation: 0,
+        elevation: 30,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Padding(
@@ -52,16 +54,23 @@ class _MainState extends State<Main> {
           BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(top:0),
-                child: Icon(Icons.favorite, size: 27),
+                child: Icon(FontAwesomeIcons.search, size: 23),
               ),
-              label: 'Cart'
+              label: 'Sell'
           ),
           BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(top:0),
-                child: Icon(Icons.add, size: 30),
+                child: Icon(Icons.add_circle_outline_outlined, size: 32),
               ),
               label: 'Sell'
+          ),
+          BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.only(top:0),
+                child: Icon(Icons.favorite, size: 27),
+              ),
+              label: 'Cart'
           ),
           BottomNavigationBarItem(
               icon: Padding(

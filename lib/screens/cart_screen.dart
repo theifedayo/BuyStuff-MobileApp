@@ -14,7 +14,10 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 0,
-        title: Header(screenName: "Cart", rightWidget: Icon(FontAwesomeIcons.search, color: Colors.black, size: 20,)),
+        title: Header(screenName: "Cart", rightWidget: Image.asset(
+          "images/search-icon.png",
+          width: MediaQuery.of(context).size.width*0.12,
+        )),
         backgroundColor: Colors.white,
         toolbarHeight: 60,
         elevation: 0,

@@ -255,7 +255,7 @@ class _SignupScreenState extends State<SignupScreen> {
               color: Colors.grey[600]
           ),),
           GestureDetector(
-            child: Text(" Sign in", style: TextStyle(
+            child: Text(" Login", style: TextStyle(
                 fontFamily: 'Montserrat',
                 fontSize: MediaQuery.of(context).size.height*0.018,
                 fontWeight: FontWeight.bold

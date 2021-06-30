@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:buystuff/components/header.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class SellScreen extends StatefulWidget {
@@ -14,7 +13,7 @@ class _SellScreenState extends State<SellScreen> {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 0,
-        title: Header(screenName: "Sell", rightWidget: Text("Add your first product", style: TextStyle(
+        title: Header(screenName: "Sell", rightWidget: Text("Add a product", style: TextStyle(
           fontSize: 13,
           color: Colors.green,
           fontFamily: 'Montserrat',
