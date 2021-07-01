@@ -15,13 +15,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
   MatchEngine _matchEngine;
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   List<String> _names = ["images/cake1.jpeg", "images/clothing1.jpeg", "images/sneakers2.jpeg", "images/clothing2.jpeg", "images/watch1.jpeg"];
-  List<Color> _colors = [
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.yellow,
-    Colors.orange
-  ];
+  // List<Color> _colors = [
+  //   Colors.red,
+  //   Colors.blue,
+  //   Colors.green,
+  //   Colors.yellow,
+  //   Colors.orange
+  // ];
 
   @override
   void initState() {
