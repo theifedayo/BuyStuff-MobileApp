@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:buystuff/components/header.dart';
 import 'package:buystuff/components/transaction_card.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -27,7 +28,11 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> {
       body: ListView(
         children: [
           VisaCard(),
-          TransactionCard(),
+          TransactionCard(activityContainerColor: Color(0xFFF0FFF0), activityIcon: FontAwesomeIcons.arrowDown, productName: '2 Beret', date: 'July 01, 2021', price: '+NGN2,500.00', activity: 'Sold', activityColor: Colors.green[300],),
+          TransactionCard(activityContainerColor: Colors.red[50], activityIcon: FontAwesomeIcons.arrowUp, productName: '1 Vitafoam Vita Corona Mattress', date: 'June 26, 2021', price: '-NGN2,500.00', activity: 'Bought', activityColor: Colors.red[300],),
+          TransactionCard(activityContainerColor: Color(0xFFF0FFF0), activityIcon: FontAwesomeIcons.arrowDown, productName: '3 Thunderbolt 3 Type-C Adapter', date: 'June 12, 2021', price: '+NGN15,000.00', activity: 'Sold', activityColor: Colors.green[300],),
+          TransactionCard(activityContainerColor: Color(0xFFF0FFF0), activityIcon: FontAwesomeIcons.arrowDown, productName: '1 New Ft Horizontal Window Day And Night Blinds', date: 'June 01, 2021', price: '+NGN14,500.00', activity: 'Sold', activityColor: Colors.green[300],),
+          TransactionCard(activityContainerColor: Colors.red[50], activityIcon: FontAwesomeIcons.arrowUp, productName: '2 Vitafoam Vita Corona Mattress', date: 'June 26, 2021', price: '-NGN23,200.00', activity: 'Bought', activityColor: Colors.red[300],),
         ],
       ),
     );
@@ -47,7 +52,7 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("NGN 200.00", style: TextStyle(
+                    Text("NGN 2 236 000.00", style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

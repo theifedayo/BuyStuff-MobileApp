@@ -22,9 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
         leadingWidth: 0,
         title: Column(
           children: [
-            Header(screenName: "Mall", screenNameSize: 22, rightWidget: IconButton(icon: Icon(FontAwesomeIcons.solidBell, color: Colors.black54,),iconSize: 25, onPressed: null)),
-            Header(screenName: "Hi, ifedayo 👋🏼", screenNameSize: 18, rightWidget: Text("")),
-
+            Header(screenName: "Mall", screenNameSize: 22, rightWidget: Text("")),
+            Header(screenName: "Hi, Ifedayo 👋🏼", screenNameSize: 18, rightWidget: Text("")),
           ],
         ),
         backgroundColor: Colors.white,

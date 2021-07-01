@@ -4,16 +4,31 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 class TransactionCard extends StatelessWidget {
-  const TransactionCard({
-    Key key,
-  }) : super(key: key);
+  TransactionCard({
+    this.activityContainerColor,
+    this.activityIcon,
+    this.productName,
+    this.date,
+    this.price,
+    this.activity,
+    this.activityColor
+});
+
+  final Color activityContainerColor;
+  final IconData activityIcon;
+  final String productName;
+  final String date;
+  final String price;
+  final String activity;
+  final Color activityColor;
+
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
       child: Container(
-          height: 80,
+          //height: 80,
           padding: const EdgeInsets.all(8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -26,9 +41,9 @@ class TransactionCard extends StatelessWidget {
                       Container(
                         width: 50,
                         height: 50,
-                        child: Center(child: Icon(FontAwesomeIcons.arrowDown, color: Colors.green[300], size: 20,)),
+                        child: Center(child: Icon(activityIcon, color: activityColor, size: 20,)), //Icon(FontAwesomeIcons.arrowDown, color: Colors.green[300]
                         decoration: new BoxDecoration(
-                          color: Color(0xFFF0FFF0),
+                          color: activityContainerColor,//Color(0xFFF0FFF0),
                           borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
                         ),),
                       Padding(
@@ -36,14 +51,17 @@ class TransactionCard extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("2 Berets (Tony store)", style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black45,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat',
-                            ),),
+                            Container(
+                              width: MediaQuery.of(context).size.width*0.45,
+                              child: Text("$productName", style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black45,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat',
+                              ),),
+                            ),
                             SizedBox(height: 5,),
-                            Text("June 26, 2021", style: TextStyle(
+                            Text("$date", style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[400],
                               fontWeight: FontWeight.bold,
@@ -59,16 +77,16 @@ class TransactionCard extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text("+NGN 2500.00", style: TextStyle(
+                      Text("$price", style: TextStyle(
                         fontSize: 14,
                         color: Colors.black45,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat',
                       ),),
                       SizedBox(height: 5,),
-                      Text("Sold", style: TextStyle(
+                      Text("$activity", style: TextStyle(
                         fontSize: 12,
-                        color: Colors.green[300],
+                        color: activityColor,//Colors.green[300],
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat',
                       ),),
