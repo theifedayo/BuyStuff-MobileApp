@@ -13,7 +13,7 @@ class _SellScreenState extends State<SellScreen> {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 0,
-        title: Header(screenName: "Sell", rightWidget: Text("Add a product", style: TextStyle(
+        title: Header(screenName: "Sell", rightWidget: Text("List a product", style: TextStyle(
           fontSize: 13,
           color: Colors.green,
           fontFamily: 'Montserrat',
