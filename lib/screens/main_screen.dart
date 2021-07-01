@@ -4,7 +4,7 @@ import 'home_screen.dart';
 import 'cart_screen.dart';
 import 'sell_screen.dart';
 import 'profile_screen.dart';
-import 'search_screen.dart';
+import 'transaction_history_screen.dart';
 
 
 
@@ -19,7 +19,7 @@ class _MainState extends State<Main> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold, fontFamily: "Montserrat");
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    SearchScreen(),
+    TransactionHistoryScreen(),
     SellScreen(),
     CartScreen(),
     ProfileScreen(),
@@ -54,7 +54,7 @@ class _MainState extends State<Main> {
           BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(top:0),
-                child: Icon(FontAwesomeIcons.search, size: 23),
+                child: Icon(FontAwesomeIcons.dollarSign, size: 23),
               ),
               label: 'Sell'
           ),
