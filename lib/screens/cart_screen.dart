@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buystuff/components/header.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -28,6 +29,24 @@ class _CartScreenState extends State<CartScreen> {
 
           ],
         ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton.extended(
+            onPressed: () {
+              // Add your onPressed code here!
+            },
+            label: const Text('NGN 256 000.00', style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Montserrat',
+            ),),
+            icon: const Icon(Icons.shopping_cart, color: Colors.white, size: 30,),
+            backgroundColor: Color(0xFF001F3E),
+          ),
+        ],
       ),
     );
   }
