@@ -8,6 +8,8 @@
     <img width="294" alt="Screenshot 2021-07-01 at 21 15 16" src="https://user-images.githubusercontent.com/47679952/124186033-9fcdd500-dab3-11eb-918d-88e3a4922d13.png">
     <img width="294" alt="Screenshot 2021-07-01 at 21 13 55" src="https://user-images.githubusercontent.com/47679952/124186087-b2480e80-dab3-11eb-936e-472fc5117ac6.png">
     <img width="294" alt="Screenshot 2021-07-01 at 21 13 45" src="https://user-images.githubusercontent.com/47679952/124186187-d7d51800-dab3-11eb-8508-38f0d44f79cf.png">
+    <img width="294" alt="Screenshot 2021-07-02 at 16 18 01" src="https://user-images.githubusercontent.com/47679952/124295896-4916d880-db51-11eb-9d09-15c98157a901.png">
+    <img width="294" alt="Screenshot 2021-07-02 at 16 18 15" src="https://user-images.githubusercontent.com/47679952/124295970-5d5ad580-db51-11eb-82c6-d3d6c5055306.png">
     <img width="294" alt="Screenshot 2021-07-01 at 21 14 21" src="https://user-images.githubusercontent.com/47679952/124186232-ed4a4200-dab3-11eb-8077-7ae3fdacf98b.png">
 </div>
 
