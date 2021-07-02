@@ -13,6 +13,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
       appBar: AppBar(
         leadingWidth: 0,
         title: Row(
@@ -162,11 +163,11 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(FontAwesomeIcons.shoppingCart, color: Colors.green[300],),
+            Icon(FontAwesomeIcons.shoppingCart, color: Colors.red[300],),
             SizedBox(width: MediaQuery.of(context).size.width*0.1,),
             Icon(FontAwesomeIcons.arrowRight, color: Colors.black45,),
             SizedBox(width: MediaQuery.of(context).size.width*0.1,),
-            Icon(FontAwesomeIcons.truckPickup, color: Colors.red[300],),
+            Icon(FontAwesomeIcons.truckPickup, color: Colors.green[300],),
           ],
         )
       ],
