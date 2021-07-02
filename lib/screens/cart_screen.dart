@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:buystuff/components/header.dart';
 import 'package:buystuff/components/cart_card.dart';
+import 'package:page_transition/page_transition.dart';
+import 'checkout_screen.dart';
 
 
 
@@ -42,15 +44,26 @@ class _CartScreenState extends State<CartScreen> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FloatingActionButton.extended(
-            label: const Text('NGN 256 000.00', style: TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Montserrat',
-            ),),
-            icon: const Icon(Icons.shopping_cart, color: Colors.white, size: 30,),
-            backgroundColor: Color(0xFF001F3E),
+          GestureDetector(
+            child: FloatingActionButton.extended(
+              label: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('NGN 122 400.00', style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Montserrat',
+                  ),),
+                  Icon(Icons.chevron_right, color: Colors.white, size: 40,)
+                ],
+              ),
+              icon: const Icon(Icons.shopping_cart, color: Colors.white, size: 20,),
+              backgroundColor: Color(0xFF001F3E),
+            ),
+            onTap: (){
+              Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: CheckOutScreen()));
+            },
           ),
         ],
       ),
