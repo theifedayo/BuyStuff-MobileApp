@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:buystuff/components/header.dart';
+import 'package:buystuff/components/stateless_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -41,34 +41,10 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
       body: ListView(
         children: [
           VisaCard(),
-          Column(
-            children: [
-              Text("You're currently paying from your visa card", style: TextStyle(
-                fontSize: 13,
-                color: Colors.black,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.bold
-              ),),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-              Text("Switch to input bank details", style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.green,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.bold
-              ),),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(FontAwesomeIcons.shoppingCart, color: Colors.green[300],),
-                  SizedBox(width: MediaQuery.of(context).size.width*0.1,),
-                  Icon(FontAwesomeIcons.arrowRight, color: Colors.black45,),
-                  SizedBox(width: MediaQuery.of(context).size.width*0.1,),
-                  Icon(FontAwesomeIcons.truckPickup, color: Colors.red[300],),
-                ],
-              )
-            ],
-          )
+          SizedBox(height: 50,),
+          CheckOutDetails(),
+          SizedBox(height: 50,),
+          StatelessButton(buttonText: "Pay Now  💳", buttonColor: Color(0xFF001F3E))
         ],
       ),
     );
@@ -146,6 +122,54 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
             color: Colors.black87,
           )
       ),
+    );
+  }
+
+  Widget CheckOutDetails(){
+    return Column(
+      children: [
+        Text("You're currently paying from your visa card", style: TextStyle(
+            fontSize: 15,
+            color: Colors.black54,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold
+        ),),
+        SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+        Container(
+          width: MediaQuery.of(context).size.width*0.6,
+          height: MediaQuery.of(context).size.height*0.07,
+          child: Center(
+            child: Text("NGN 122 400.00", style: TextStyle(
+                fontSize: 23,
+                color: Color(0xFF001F3E),
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold
+            ),),
+          ),
+          decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(70.0),
+            color: Colors.blue[50],
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+        Text("Switch to input bank details", style: TextStyle(
+            fontSize: 15,
+            color: Colors.green[400],
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold
+        ),),
+        SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(FontAwesomeIcons.shoppingCart, color: Colors.green[300],),
+            SizedBox(width: MediaQuery.of(context).size.width*0.1,),
+            Icon(FontAwesomeIcons.arrowRight, color: Colors.black45,),
+            SizedBox(width: MediaQuery.of(context).size.width*0.1,),
+            Icon(FontAwesomeIcons.truckPickup, color: Colors.red[300],),
+          ],
+        )
+      ],
     );
   }
 }
