@@ -69,7 +69,7 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
-          child: Text("Social commerce kinda-bullsh!t", style: TextStyle(
+          child: Text("Buy stuffs you really need", style: TextStyle(
             fontSize: 15,
             color: Colors.grey,
             fontWeight: FontWeight.bold,

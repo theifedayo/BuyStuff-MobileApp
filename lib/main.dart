@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of buystuff.
+  // This widget is the root of buystuff app.
   @override
   Widget build(BuildContext context) {
 
